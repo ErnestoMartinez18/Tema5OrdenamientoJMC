@@ -152,8 +152,55 @@ public class DatosDesordenados {
         mostrarArreglo(arreglo);
     }
     
+   //Metodo para Shell
+    public String sell(int[] arreglo){
+        int salto,i,j,k,auxiliar;
+        salto=arreglo.length/2;
+        while(salto>0){
+            for(i=salto;i<arreglo.length;i++){
+                j=i-salto;
+                while(j>=0){
+                    k=j+salto;
+                    if(arreglo[j]<=arreglo[k]){
+                        j=-1;
+                    }else{
+                        auxiliar=arreglo[j];
+                        arreglo[j]=arreglo[k];
+                        arreglo[k]=auxiliar;
+                        j-=salto;//j=j-salto;
+                    }
+                }
+            }
+            salto=salto/2;
+        }
+        System.out.println("Arreglo Ordenado con shell");
+        return mostrarArreglo(arreglo);
+    }
+    
     //Metodo para Shell
-   
+    public String sellDesendente(int[] arreglo){
+        int salto,i,j,k,auxiliar;
+        salto=arreglo.length/2;
+        while(salto>0){
+            for(i=salto;i<arreglo.length;i++){
+                j=i-salto;
+                while(j>=0){
+                    k=j+salto;
+                    if(arreglo[j]>=arreglo[k]){
+                        j=-1;
+                    }else{
+                        auxiliar=arreglo[j];
+                        arreglo[j]=arreglo[k];
+                        arreglo[k]=auxiliar;
+                        j-=salto;//j=j-salto;
+                    }
+                }
+            }
+            salto=salto/2;
+        }
+        System.out.println("Arreglo Ordenado con shell");
+        return mostrarArreglo(arreglo);
+    }
     
 
     public String mostrarArreglo(int[] arreglo) {

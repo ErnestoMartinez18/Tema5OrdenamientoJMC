@@ -40,8 +40,10 @@ public class DatosDesordenados {
                 pasadas++;
             }
         }
-        System.out.println("Termino en " + pasadas + " Pasadas");
+        System.out.println("Termino en " + pasadas + " pasadas");
     }
+    ///////ddffdsdfdd
+    
     
     public String burbujaDesendente(int[] arreglo){
         pasadas=0;

@@ -42,7 +42,7 @@ public class DatosDesordenados {
         }
         System.out.println("Termino en " + pasadas + " pasadas");
     }
-    ///////ddffdsdfdd
+    ///////ddffdsdfdd  
     
     
     public String burbujaDesendente(int[] arreglo){
@@ -213,5 +213,74 @@ public class DatosDesordenados {
         System.out.println("");
         return cadena;
     }
+//Metodo Radix
+    public String Radix(int[] arreglo) {
+        int x, i, j;
 
+        for (x = Integer.SIZE - 1; x >= 0; x--) {//menon menos o mas mas
+            int auxiliar[] = new int[arreglo.length];
+            j = 0;
+            for (i = 0; i < arreglo.length; i++) {
+                boolean mover = arreglo[i] << x >= 0;//Si x<=0 devuelves un true o in false para asignar a este arreglo en la posicion i que se llama mover
+                /*
+                 *if(x>y){
+                    mayor=x;
+                 }else{
+                    mayor=y;
+                 }
+                 Operador Ternario ?
+                 resultado=(condicion)? valor1:valor2
+                 mayor=(x>y)?x:y;
+                 */
+                if (x == 0 ? !mover : mover) {
+                    auxiliar[j] = arreglo[i];
+                    j++;
+                } else {
+                    arreglo[i - j] = arreglo[i];
+                }
+            }
+            for (i = j; i < auxiliar.length; i++) {
+                auxiliar[i] = arreglo[i - j];
+            }
+            arreglo = auxiliar;
+        }
+        System.out.println("El arreglo ordenado con Radix es: ");
+        return mostrarArreglo(arreglo);
+    }
+    //Metodo RadixDesendente
+    public String RadixDesendente(int[] arreglo){
+        int x,i,j;
+        
+        for(x=Integer.SIZE-1;x>=0;x--){//menon menos o mas mas
+            int auxiliar[]=new int[arreglo.length];
+             j=0;
+             for(i=0;i<arreglo.length;i++){
+                 boolean mover=arreglo[i] << x<=0;//Si x<=0 devuelves un true o in false para asignar a este arreglo en la posicion i que se llama mover
+                 /*
+                 *if(x>y){
+                    mayor=x;
+                 }else{
+                    mayor=y;
+                 }
+                 Operador Ternario ?
+                 resultado=(condicion)? valor1:valor2
+                 mayor=(x>y)?x:y;
+                 */
+                 if(x==0 ? !mover:mover){
+                     auxiliar[j]=arreglo[i];
+                     j++;
+                 }else{
+                     arreglo[i-j]=arreglo[i];
+                 } 
+             }
+             for(i=j;i<auxiliar.length;i++){
+                 auxiliar[i]=arreglo[i-j];
+             }
+             arreglo=auxiliar;
+        }
+        System.out.println("El arreglo ordenado con Radix es: ");
+        return mostrarArreglo(arreglo);
+    }
 }
+
+
